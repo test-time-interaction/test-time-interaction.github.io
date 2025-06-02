@@ -1,0 +1,21 @@
+[
+  { "method": "IBM CUGA","openweight": "✗", "backbone": "-", "avg": 61.7 },
+  { "method": "OpenAI CUA","openweight": "✗", "backbone": "-", "avg": 58.1 },
+  { "method": "Jace AI", "openweight": "✗","backbone": "-", "avg": 57.1 },
+  { "method": "ScribeAgent", "openweight": "✗","backbone": "GPT-4o + Qwen2.5 32B", "avg": 53.0, "shopping": 45.8, "cms": 37.9, "reddit": 73.7, "gitlab": 59.7, "maps": 56.3 },
+  { "method": "AgentSymbiotic", "openweight": "✗","backbone": "Claude 3.5 + Llama 3.1 8B", "avg": 48.5, "shopping": 48.7, "cms": 41.2, "reddit": 63.2, "gitlab": 47.2, "maps": 57.8 },
+  { "method": "Learn-by-Interact","openweight": "✗", "backbone": "Claude 3.5 Sonnet", "avg": 48.0 },
+  { "method": "AgentOccam-Judge","openweight": "✗", "backbone": "GPT-4", "avg": 45.7, "shopping": 43.3, "cms": 46.2, "reddit": 67.0, "gitlab": 38.9, "maps": 52.3 },
+  { "method": "WebPilot","openweight": "✗", "backbone": "GPT-4o", "avg": 37.2, "shopping": 36.9, "cms": 24.7, "reddit": 65.1, "gitlab": 39.4, "maps": 33.9 },
+
+  { "method": "Learn-by-Interact","openweight": "✓", "backbone": "Codestral 22B", "avg": 24.2 },
+  { "method": "AgentTrek", "openweight": "✓","backbone": "Qwen2.5 32B", "avg": 22.4 },
+  { "method": "AutoWebGLM","openweight": "✓", "backbone": "ChatGLM3 6B", "avg": 18.2 },
+  { "method": "NNetnav","openweight": "✓", "backbone": "Llama 3.1 8B", "avg": 7.2, "shopping": 7.4, "cms": 4.2, "reddit": 0.0, "gitlab": 0.0, "maps": 28.5 },
+
+  { "method": "Gemma 3 12B", "openweight": "✓","backbone": "Gemma 3 12B", "avg": 18.3, "shopping": 26.7, "cms": 8.7, "reddit": 30.9, "gitlab": 5.5, "maps": 27.7 },
+  { "method": "Fixed horizon 10", "openweight": "✓","backbone": "Gemma 3 12B", "avg": 23.8, "shopping": 28.4, "cms": 15.6, "reddit": 26.0, "gitlab": 13.2, "maps": 34.7 },
+  { "method": "Fixed horizon 30","openweight": "✓", "backbone": "Gemma 3 12B", "avg": 19.0, "shopping": 25.7, "cms": 9.7, "reddit": 29.8, "gitlab": 8.7, "maps": 28.57 },
+  { "method": "TTI (Ours)","openweight": "✓", "backbone": "Gemma 3 12B", "avg": 26.1, "shopping": 33.9, "cms": 15.5, "reddit": 35.3, "gitlab": 15.7, "maps": 40.5 }
+]
+

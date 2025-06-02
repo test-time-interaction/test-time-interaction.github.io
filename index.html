@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TTI</title>
+    <link rel="icon" href="website/images/icon/icon.png" type="image/icon type">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+div.scroll-container {
+  background-color: #333;
+  overflow: auto;
+  white-space: nowrap;
+  padding: 10px;
+}
+
+div.scroll-container img {
+  padding: 10px;
+}
+</style>
+    <script>
+function copyBibtex() {
+    const code = document.getElementById("bibtex-code").textContent;
+    navigator.clipboard.writeText(code).then(() => {
+        alert("BibTeX copied to clipboard!");
+    }).catch(err => {
+        console.error("Failed to copy BibTeX:", err);
+    });
+}
+</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <link rel="stylesheet" href="website/css/bulma.min.css">
+    <link rel="stylesheet" href="website/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="website/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./website/javascript/bulma-carousel.min.js"></script>
+    <script src="./website/javascript/bulma-slider.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+    <link href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator_bootstrap4.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script>
+    <!-- <script src="website/javascript/peity-vanilla.js"></script> -->
+
+    <script src="website/javascript/benchmark_table.js" type="module"></script>
+    <script src="website/javascript/benchmark_table2.js" type="module"></script>
+
+    <link rel="stylesheet" href="website/css/index.css">
+
+</head>
+
+<body>
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title publication-title">
+                            <img src="website/images/icon/icon.png" alt="logo" width="40" height="40" />
+                            Thinking vs. Doing: Improving Agent Reasoning by Scaling Test-Time Interaction
+                        </h1>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><a href="https://sjunhongshen.github.io">Junhong Shen</a><sup>1,2*</sup>,</span>
+                            <span class="author-block">
+                                <a href="https://www.jackgethome.com/">Hao Bai</a><sup>3*</sup>
+                            </span>
+                            <br>
+                            <span class="author-block"><a href="https://lunjunzhang.github.io/">Lunjun Zhang</a><sup>4</sup>,</span>
+                            <span class="author-block">
+                                <a href="https://yifeizhou02.github.io">Yifei Zhou</a><sup>5</sup>,
+                            </span>
+                            <span class="author-block"><a href="https://ars22.github.io/">Amrith Setlur</a><sup>1</sup>,</span>
+                            <span class="author-block"><a href="https://tsb0601.github.io/">Shengbang Tong</a><sup>6</sup>,</span>
+                            <span class="author-block"><a href="https://www.linkedin.com/in/diegocaples/">Diego Caples</a><sup>7</sup>,</span>
+                            <span class="author-block"><a href="https://nanjiang.cs.illinois.edu/">Nan Jiang</a><sup>3</sup>,</span>
+                            <span class="author-block"><a href="https://tongzhang-ml.org/">Tong Zhang</a><sup>3</sup></span>
+                            <br>
+                            <span class="author-block"><a href="https://www.cs.cmu.edu/~atalwalk/">Ameet Talwalkar</a><sup>1</sup>,</span>
+                            <span class="author-block">
+                                <a href="https://aviralkumar2907.github.io/">Aviral Kumar</a><sup>1</sup>
+                            </span>
+                        </div>
+                        <br>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><sup>1</sup> CMU,</span>
+                            <span class="author-block"><sup>2</sup> <a href="https://scribehow.com/">Scribe</a>,</span>
+                            <span class="author-block"><sup>3</sup> UIUC,</span>
+                            <span class="author-block"><sup>4</sup> U Toronto,</span>
+                            <span class="author-block"><sup>5</sup> UC Berkeley,</span>
+                            <span class="author-block"><sup>6</sup> NYU,</span>
+                            <span class="author-block"><sup>7</sup> <a href="https://www.theagi.company/">The AGI Company</a></span>
+                        </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><small>*Equal contribution</small></span>
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <!-- PDF Link. -->
+                                <span class="link-block">
+                                    <a href="https://arxiv.org/" class="btn btn-outline-dark"
+                                        role="button">&#128221;
+                                        Paper</a> &nbsp;&nbsp;
+
+                                </span>
+                                <!-- Code Link. -->
+                                <span class="link-block">
+                                    <a href="https://github.com/" class="btn btn-outline-dark"
+                                        role="button">&#128187;
+                                        Code</a> &nbsp;&nbsp;
+
+                                </span>
+                                <!-- Dataset Link. -->
+                                <span class="link-block">
+
+                                    <a href="https://huggingface.co/collections/JackBAI/"
+                                        class="btn btn-outline-dark" role="button">&#128194;
+                                        Model</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="abstract">
+        <div class="container is-max-desktop">
+            <!-- Abstract. -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Abstract</h2>
+                    <div style="text-align: center;">
+                        <img src="website/images/teaser.png" width="1000"/> 
+                    </div>
+                    <br>
+                    <div class="content has-text-justified">
+                        <p>
+      Test-time scaling in agentic tasks often relies on generating long reasoning traces ("think" more) before acting, but this does not allow agents to acquire new information from the environment or adapt behavior over time. We propose <b>scaling test-time interaction</b>---increasing an agent's interaction horizon---to enable rich behaviors like <b>exploration, backtracking, and re-planning</b>. To demonstrate the promise of this scaling dimension, we situate our study in the domain of web agents. We first show that even prompting-based interaction scaling can improve task success. We then introduce <b>TTI</b>, <b>a curriculum-based RL approach</b> that trains agents by adjusting interaction lengths during rollout. Using Gemma 3 12B, TTI achieves state-of-the-art results among open-source agents trained on public data. Our analysis shows that TTI enables agents to dynamically balance exploration and exploitation, establishing interaction scaling as a powerful, complementary dimension to test-time compute scaling.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--/ Abstract. -->
+        </div>
+    </section>
+
+    <section class="section" id="interaction-framework">
+        <div class="container is-max-desktop">
+
+            <div class="columns is-full-width">
+
+                <!-- Visual Effects. -->
+                <div class="column">
+                    <div class="text-justified">
+                        <h2 class="title is-3">Scaling Test-Time Interaction: A New Dimension of Agent Scaling</h2>
+
+                        <h3> Motivation: Why Do We Need Longer Interaction? </h3>
+                        <p>
+                            Prior methods for agent test-time scaling usually scale the <em>number of thinking tokens</em> at each step, but this does not enable the agent to engage in longer interactions with the environment to collect new information. We argue that to building more robust and generalizable agents requires learning adaptive policies that can <em>adjust on-the-fly</em> to new information. A key to such adaptability is being able to <em>take more actions</em> during deployment. 
+
+                            We therefore propose <b>a new dimension of test-time scaling: increasing the number of interaction steps of the agent</b>. This allows agents to have sufficient time to explore different paths. For example, in a hotel booking task, an agent must browse many listings, compare user reviews, and check availability before selecting the best option.  Interaction scaling is orthogonal to existing methods based on chain-of-thought (CoT), which emphasize deeper reasoning per step but do not support gathering new information from the environment.
+                        </p>
+                    </div>
+                    
+                    <br>
+                    <br>
+                    <div class="text-justified">
+                        <h3> Scaling Interaction via Prompting</h3>
+                        <br>
+                        <div style="text-align: center;">
+                            <img src="website/images/prompting.png" width="1250" />
+                        </div>
+                        <br>
+                        <p> To demonstrate the potential of test-time interaction scaling, we first introduce a purely <b>inference-time "check-again" mechanism</b>: after the agent issues the task completion action, we explicitly prompt it to reconsider its decision: <i>"You just signaled task completion. Let's pause and think again..."</i>
+
+                        We study its effect on web navigation, using a subset of <a href="https://webarena.dev/">WebArena</a>.  As shown in the leftmost figure above, prompting the agent to re-check not only increases the actual interaction length as expected (dotted lines), but also  improves the success rates on most domains (bars).</p>
+                    </div>
+                    <div class="text-justified">
+                        <h5> Comparison with Traditional Test-Time Scaling </h5>
+                        <p>We also compare interaction scaling against per-step budget forcing and best-of-n. We aim to answer the question: <b><em>Given a  total token budget, should agents prioritize more interaction steps or generating longer reasoning traces at each step?</em></b></p>
+                        <ul>
+                            <li><b>Performance:</b> The middle figure above shows that among the three  strategies, interaction scaling (<span style="color: rgb(0, 128, 0);">green stars</span>) shows the steepest upward trend,  achieving the highest success rate as the allowed token budgets increase.</li>
+                            <li><b>Compute decomposition:</b> The rightmost figure above decomposes total compute into tokens per step (y-axis) and steps per rollout (x-axis). Interaction scaling extends   along the x-axis, while per-step reasoning scales along y-axis. We find that scaling across steps is more effective in web settings, likely because it enables the agent to gather new information and enrich its context. </li>
+                        </ul>
+                        <p> However, the check-again strategy only allows the agent to revisit its behavior upon task completion, it does not enable it to implement nuanced behaviors such as switching between exploration and exploitation in the middle of a rollout. This shows the need for methods that <em>train</em> agents to scale test-time interaction internally.</p>
+                    </div>
+              </div>
+                <!--/ Visual Effects. -->
+            </div>
+    </section>
+
+    <section class="section" id="interaction-framework">
+        <div class="container is-max-desktop">
+
+            <div class="columns is-full-width">
+
+                <!-- Visual Effects. -->
+                <div class="column">
+                    <div class="text-justified">
+                        <h2 class="title is-3">TTI: Curriculum-Based Online RL for Interaction Scaling</h2>
+                        <p>A natural post-training approach is to apply online reinforcement learning (RL) using binary task rewards over extended horizons. However, our experiments reveal that training with a fixed rollout horizon presents a trade-off: short horizons limit the agent's ability to explore, while long horizons suffer from slow convergence due to optimization difficulties and noisy reward signals (assigning high value to exploratory behaviors like "going back" or "trying random links" early in training).
+
+                        To address these challenges, we propose <b>TTI (Test-Time Interaction)</b>:</p>
+                        <ul>
+                            <li><b>Curriculum on interaction horizon:</b> The agent is initially trained on short trajectories, and is gradually exposed to longer horizons.</li>
+                            <li><b>Multicaptive schedule:</b> The curriculum uses a multiplicatively increasing schedule, assuming the agent can quickly acquire basic skills and benefits from early exposure to exploratory behaviors.</li>
+                            <li><b>Compatible with most online RL algorithms:</b> We mainly employ online filtered behavior cloning in our experiments.</li>
+                        </ul>
+                </div>
+                <!--/ Visual Effects. -->
+            </div>
+    </section>
+
+
+    <section class="section" id="evaluation">
+        <div class="container is-max-desktop">
+            <div class="columns is-full-width">
+                <div class="column">
+                    <div class="content">
+                        <h2 class="title is-3">Experiment Results on WebVoyager</h2>
+                        <!-- <h3>Experiment results on Android-in-the-Wild</h3> -->
+                        <p>
+                            To enable large-scale training without training on the benchmark itself, we adopt synthetic task generation inspired by <a href="https://arxiv.org/abs/2412.13194">PAE</a>. We first evaluate agents on <a href="https://github.com/MinorJerry/WebVoyager">WebVoyager</a>, which consists of 427 tasks across 13 domains (we replace Google Search with Bing due to ReCaptcha issues due to ReCaptcha issues). 
+
+                            Using Gemma 3 12B, <b>TTI-trained agent achieves an average task success rate of 66.5%, setting a new state-of-the-art among open agents trained purely on public data</b>. Our curriculum approach outperforms fixed 10-horizon baseline by 7.4% and fixed 30-horizon baseline by 21.3% in average accuracy. 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero teaser">
+        <div class="container is-max-desktop">
+            <div class="hero-body">
+
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="benchmark-table-content" role="tabpanel"
+                        aria-labelledby="benchmark-table-content">
+
+                        <div id="benchmark-table"></div>
+                    </div>
+                    <p class="mt-2 px-2">
+                        Baseline results are taken from <a href="https://arxiv.org/abs/2412.13194">Zhou et al.</a>, <a href="https://arxiv.org/abs/2501.12326">Qin et al.</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="evaluation">
+        <div class="container is-max-desktop">
+            <div class="columns is-full-width">
+                <div class="column">
+                    <div class="content">
+                        <h2 class="title is-3">Experiment Results on WebArena</h2>
+                        <p>
+                                We also evaluate using the full <a href="https://webarena.dev/">WebArena</a> benchmark. TTI obtains   the highest performance among open-source agents trained entirely via self-improvement, without relying on proprietary models for task completion or distillation. 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <section class="hero teaser">
+        <div class="container is-max-desktop">
+            <div class="hero-body">
+
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="benchmark-table2-content" role="tabpanel"
+                        aria-labelledby="benchmark-table2-content">
+
+                        <div id="benchmark-table2"></div>
+                    </div>
+                    <p class="mt-2 px-2">
+                        WebArena results. For proprietary agents, we include the top 8 from the official <a href="https://docs.google.com/spreadsheets/d/1M801lEpBbKSNwP-vDBkC_pF7LdyGU1f_ufZb_NWNBZQ/edit?gid=0#gid=0">leaderboard</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section" id="evaluation">
+        <div class="container is-max-desktop">
+            <div class="columns is-full-width">
+                <div class="column">
+                    <div class="content">
+                        <h3>Further Scaling of TTI Agents</h3>
+                        <p>
+                            We also study the question: <b><em>Can we further amplify performance by combining TTI with inference-time interaction scaling techniques, such as re-checking?</em></b>  We apply the check-again strategy to intermediate TTI checkpoints. As shown in the figure on the right, applying re-checking on top of TTI improves task success   across various training stages. The benefits are more obvious in the early stages of training, when the agent has a stronger bias to terminate prematurely.
+                        </p>
+                    </div>
+                </div>
+
+                <div style="text-align: center;">
+                    <img src="website/images/further_scaling.png" width="300"/> 
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="interaction-framework">
+        <div class="container is-max-desktop">
+
+            <div class="columns is-full-width">
+
+                <!-- Visual Effects. -->
+                <div class="column">
+                    <div class="text-justified">
+                        <h2 class="title is-3">Case Studies</h2>
+
+                        <h4> Success Mode: Effective Exploration in Complex Tasks</h4>
+                        <p>
+                            For complex, exploratory tasks that require information retrieval, TTI trains the agent to extend its interaction horizon through  searches and backtracking, gathering and comparing   information   before making decisions. Here is an example: 
+                            <br>
+                            <b>Task: Locate a recipe for an American apple pie on Allrecipes with a rating of at least 4 stars and more than 50 reviews. Note the maximum temperature mentioned in the Directions.</b>
+                        </p>
+                    </div>
+                    
+                    <div class="scroll-container">
+  <img src="website/images/687-1-1.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/687-1-2.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/687-1-3.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/687-1-4.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/687-1-5.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/687-1-6.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/687-1-7.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/687-1-8.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/687-1-9.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/687-1-10.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/687-1-11.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/687-1-12.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/687-1-13.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/687-1-14.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/687-1-15.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+</div>
+                <!--/ Visual Effects. -->
+            </div>
+    </section>
+
+    <section class="section" id="interaction-framework">
+        <div class="container is-max-desktop">
+
+            <div class="columns is-full-width">
+
+                <!-- Visual Effects. -->
+                <div class="column">
+                    <div class="text-justified">
+
+                        <h4> Success Mode: Strategic Exploitation in Simple Tasks</h4>
+                        <p>
+                            For simpler tasks with clear, deterministic paths (e.g., form filling or direct lookups),  The TTI agent completes tasks efficiently without over-exploration.
+                            <br>
+                            <b>Task: Identify the latest top-trending open-source project in the category of 'Machine Learning' on GitHub, and check the number of stars it has received.</b>
+                        </p>
+                    </div>
+                    
+                    <div class="scroll-container">
+  <img src="website/images/image-1.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/image-2.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/image-3.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/image-4.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/image-5.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/image-6.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/image-7.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+</div>
+              </div>
+                <!--/ Visual Effects. -->
+            </div>
+    </section>
+
+    <section class="section" id="interaction-framework">
+        <div class="container is-max-desktop">
+
+            <div class="columns is-full-width">
+
+                <!-- Visual Effects. -->
+                <div class="column">
+                    <div class="text-justified">
+
+                        <h4> Failure Mode: Over-Reliance on Resets</h4>
+                        <p>
+                            When an action fails, our agent may reset the task by returning to the Bing search page rather than attempting recovery within the target domain. This suggests the agent treats search as a universal fallback, even when  more domain-specific actions (e.g., revisiting menus, refining filters) would be more effective.
+                            <br>
+                            <b>Task: On Apple's website, how many different types of keyboards are available when customizing your 14-inch MacBook Pro?</b>
+                        </p>
+                    </div>
+                    
+                    <div class="scroll-container">
+  <img src="website/images/image-7-1.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/image-7-2.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/image-7-3.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/image-7-4.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/image-7-5.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/image-7-6.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/image-7-7.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/image-7-8.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/image-7-9.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/image-7-10.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/image-7-11.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/image-7-12.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/image-7-13.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/image-7-14.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/image-7-15.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/image-7-16.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+</div>
+              </div>
+                <!--/ Visual Effects. -->
+            </div>
+    </section>
+
+    <section class="section" id="interaction-framework">
+        <div class="container is-max-desktop">
+
+            <div class="columns is-full-width">
+
+                <!-- Visual Effects. -->
+                <div class="column">
+                    <div class="text-justified">
+
+                        <h4> Failure Mode: Limited Self-Verification </h4>
+                        <p>
+                            We also observe that the the agent may fail to verify its actions against the task goal, especially in the last step. An important next step is to combine TTI with scaling per-step reasoning.
+                            <br>
+                            <b>Task: Identify a new open-source project on GitHub related to 'AI agriculture' that created in 2022, and note its main programming language and description.</b>
+                        </p>
+                    </div>
+                    
+                    <div class="scroll-container">
+  <img src="website/images/image-3-1.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/image-3-2.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/image-3-3.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+  <img src="website/images/image-3-4.png" alt="Cinque Terre" style="height: 500px; width: auto;">
+</div>
+              </div>
+                <!--/ Visual Effects. -->
+            </div>
+    </section>
+
+                                
+
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">Citation</h2>
+            <p> If you find our work relevant, please consider citing it: </p>
+            <div class="bibtex-container" style="position: relative;">
+  <button onclick="copyBibtex()" style="
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 5px 10px;
+      font-size: 12px;
+      cursor: pointer;
+  ">Copy</button>
+
+  <pre><code id="bibtex-code">@article{shenbai2025tti,
+title={},
+author={},
+year={2025}
+}</code></pre>
+</div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div align="center" class="container">
+            <div class="columns is-centered">
+                <div class="content is-small">
+                    This website templated is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">here</a> and <a href="https://xwang.dev/mint-bench/">here</a>.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+
+</html>
