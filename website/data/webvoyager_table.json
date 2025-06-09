@@ -10,6 +10,6 @@
   { "model": "Gemma 3 12B", "openweight": "✓","opendata": "✓", "avg": 55.8, "allrecipes": 25.7, "amazon": 32.3, "apple": 45.5, "arxiv": 60.6, "github": 54.8, "espn": 60.6, "coursera": 56.3, "cambridge": 69.6, "bbc": 65.6, "map": 54.8, "search": 72.7, "huggingface": 66.7, "wolframalpha": 61.1 },
   { "model": "Fixed horizon 10", "openweight": "✓","opendata": "✓", "avg": 59.1, "allrecipes": 25.7, "amazon": 74.1, "apple": 51.5, "arxiv": 75.7, "github": 70.9, "espn": 44.1, "coursera": 59.3, "cambridge": 66.7, "bbc": 50.0, "map": 41.9, "search": 60.6, "huggingface": 75.5, "wolframalpha": 72.2 },
   { "model": "Fixed horizon 30", "openweight": "✓","opendata": "✓", "avg": 45.2, "allrecipes": 20.0, "amazon": 64.6, "apple": 42.4, "arxiv": 41.9, "github": 29.0, "espn": 50.0, "coursera": 34.4, "cambridge": 60.6, "bbc": 25.0, "map": 29.0, "search": 63.6, "huggingface": 45.5, "wolframalpha": 69.4 },
-  { "model": "TTI (Ours)", "openweight": "✓","opendata": "✓", "avg": 66.5, "allrecipes": 57.5, "amazon": 46.4, "apple": 69.6, "arxiv": 66.6, "github": 45.2, "espn": 59.4, "coursera": 46.9, "cambridge": 90.9, "bbc": 81.2, "map": 66.7, "search": 72.7, "huggingface": 75.7, "wolframalpha": 86.1 }
+  { "model": "TTI (Ours)", "openweight": "✓","opendata": "✓", "avg": 64.8, "allrecipes": 57.1, "amazon": 48.3, "apple": 69.6, "arxiv": 66.6, "github": 45.2, "espn": 56.3, "coursera": 46.9, "cambridge": 85.2, "bbc": 81.2, "map": 66.7, "search": 72.7, "huggingface": 75.7, "wolframalpha": 79.4 }
 ]
 
