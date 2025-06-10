@@ -275,6 +275,23 @@ function copyBibtex() {
             <div class="columns is-full-width">
                 <div class="column">
                     <div class="content">
+                        <p>
+                            We also show the the training dynamics of TTI below. The performance of TTI improves substantially as the number of GoBack and Bing actions and the trajectory length grow. Also note that the trajectory length and the numbers of GoBack and Bing actions begin to increase with TTI, once the maximum allowed horizon length is increased as a part of the curriculum schedule (this regime is shown by the green shaded area in the figure).
+                        </p>
+                        <div style="text-align: center;">
+                            <img src="website/images/webvoyager_allresults.png" width="1250" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="evaluation">
+        <div class="container is-max-desktop">
+            <div class="columns is-full-width">
+                <div class="column">
+                    <div class="content">
                         <h2 class="title is-3">Experiment Results on WebArena</h2>
                         <p>
                                 We also evaluate using the full <a href="https://webarena.dev/">WebArena</a> benchmark. TTI obtains   the highest performance among open-source agents trained entirely via self-improvement, without relying on proprietary models for task completion or distillation. 
